@@ -28,7 +28,10 @@ SECRET_KEY = 'gf%&tj0i4329_3t7dfgwy8#di%lh@)*4sn$p)-kcgb8)gay4r*'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'c9a4c651e05d.ngrok.io', '127.0.0.1','9952473f4171.ngrok.io','8c37e92a8f32.ngrok.io']
+ALLOWED_HOSTS = [
+    '0.0.0.0', 'c9a4c651e05d.ngrok.io', '127.0.0.1', '9952473f4171.ngrok.io',
+    '8c37e92a8f32.ngrok.io'
+]
 
 # Application definition
 
@@ -44,10 +47,10 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    #'django.middleware.security.SecurityMiddleware',
+    'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-   # 'django.middleware.csrf.CsrfViewMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -67,8 +70,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-           #     'django.middleware.security.SecurityMiddleware',
-                
+                #     'django.middleware.security.SecurityMiddleware',
             ],
         },
     },
