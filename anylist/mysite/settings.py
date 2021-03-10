@@ -1,3 +1,6 @@
+import django_heroku
+import dj_database_url
+from decouple import config
 """
 Django settings for mysite project.
 
@@ -119,3 +122,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+django_heroku.settings(locals())
