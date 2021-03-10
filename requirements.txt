@@ -6,7 +6,5 @@ requests==2.25.1
 virtualenv-clone==0.5.4
 heroku==0.1.4
 grpcio==1.35.0
-packaging==20.9
-pypiwin32==223
 sqlparse==0.4.1
 psycopg2==2.8.6
