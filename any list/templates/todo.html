@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        var time = new Date().getTime();
+        $(document.body).bind("mousemove keypress", function(e) {
+            time = new Date().getTime();
+        });
+   
+        function refresh() {
+            if(new Date().getTime() - time >= 3) 
+                window.location.reload(true);
+            else 
+                setTimeout(refresh, 3000);
+        }
+   
+        setTimeout(refresh, 3000);
+   </script>
+    <title>My First Django Web App</title>
+    <style>
+        body{
+            
+            background: linear-gradient(to top,#e66465, #9198e5);
+            background-repeat: no-repeat;
+            margin: 0;
+            background-attachment: fixed;
+            margin-bottom: 20px;
+
+        }
+    section{
+        margin: 0px 20px;
+    }
+
+        h1{
+            font-size: 50px;
+            margin-top: 30px;
+            color: white;
+            text-align: center;
+            font-family: monospace;
+            text-shadow: 1px 2px 3px black
+
+        }
+        .c{
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.274);
+            padding: 20px 20px;
+            font-size: 30px;
+            font-family: calbiri;
+            border-radius: 20px;
+            margin: 10px;
+            overflow: auto;
+            color: white;
+            box-shadow: 1px 2px 3px black ;
+        }
+
+        #add{
+            text-align: center;
+            font-family: monospace;
+            font-size: 30px;
+            background-color: rgb(66, 182, 37);
+            outline: none;
+            border: none;
+            color: white;
+            border-radius: 10px;
+            padding: 6px 20px;
+            margin-top: 10px;
+        }
+        #add:hover{
+            color: white;
+            background-color: rgb(55, 163, 27);
+            box-shadow: 1px 2px 3px black ;
+        }
+        .btndiv{
+            display: inline-block;
+            
+            margin: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        #del{
+            line-height: 33px;
+            vertical-align: top;
+            font-family: monospace;
+            display: inline;
+            font-size: 30px;
+            border: none;
+            outline: none;
+            background-color: rgba(255, 255, 255, 0);
+            color: red;
+            text-decoration: solid;
+            text-shadow: 0px 1px 2px black;
+            margin-top: 0px;
+            vertical-align: top;
+        }
+        .btndiv:hover {
+            background-color: rgba(250, 51, 51, 0.582);
+            box-shadow: 1px 2px 3px black ;
+        }
+        .input{
+            outline: none;
+            font-size: 25px;
+            color: red;
+            border: none;
+            border-radius: 7px ;
+            padding: 2px 5px;
+            box-shadow: 1px 2px 3px black ;
+        }
+
+    </style>
+</head>
+<body>
+    <footer style=" position:fixed;top: 0; text-align: center; width: 100%;" >
+        <center>
+        <h3 style="color: white; font-family: calbiri; margin: 0; text-shadow: 1px 2px 3px black;">Created by sudo-nick</h3>
+    </center>
+    </footer>
+<h1>ANY LIST</h1>
+
+<!-- <ul>
+    <li>A</li>
+    <li>B</li>
+
+</ul> -->
+
+<section>
+    {% for i in all %}
+   <div class="c">{{i.content}}
+       <div class='btndiv'> <form action="/deltodo/{{i.id}}/" method="post"> {% csrf_token %}
+            <input type="submit" value="x" id = 'del' />
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+</section>
+<br><br>
+<center>
+<form action="/addtodo/" method="post"> {% csrf_token %}
+    <input class="input" type="text" name = "content" autofocus><br>
+    <input type="submit" value="Add" id = 'add' />
+    <button type="button"  id = 'add' onclick="location.reload()">Refresh</button>
+
+</form>
+</center>
+
+
+</body>
+</html>
+
