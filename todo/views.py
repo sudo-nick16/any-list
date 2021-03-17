@@ -21,6 +21,9 @@ def deltodo(request, todo_id):
     #create a new todo item
     #save
     #redirect the browser to /todo/
-
+def clearall(request):
+    items = todoitem.objects.all()
+    item.delete()
+    return HttpResponseRedirect('/todo/')
 
 # Create your views here.
